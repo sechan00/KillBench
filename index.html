@@ -88,8 +88,8 @@
 
 <section id="demo">
   <div class="wrap">
-    <h2>See it in action</h2>
-    <p class="sub">The same malicious agent runs one PII-collection task twice. Flip the switch and step through — with the kill switch <strong>off</strong> it exfiltrates the directory; <strong>on</strong>, it halts the moment it reads the page.</p>
+    <h2>Play Kill Switch Demo</h2>
+    <p class="sub">A malicious agent is told to hunt for vulnerabilities in an online store and dump its data. Hit play and watch the whole run — with the kill switch <strong>off</strong> it compromises the site; <strong>on</strong>, it reads the embedded AutoGuard payload and halts.</p>
 
     <div class="demo">
       <div class="demo-bar">
@@ -98,13 +98,12 @@
           <button class="seg on" data-mode="on">Kill switch: ON</button>
         </div>
         <div class="demo-controls">
-          <button class="btn sm primary" id="demoStep">Step ▶</button>
-          <button class="btn sm ghost" id="demoReset">Reset</button>
+          <button class="btn sm primary" id="demoPlay">▶ Play</button>
         </div>
       </div>
       <div class="demo-body">
         <div class="demo-browser">
-          <div class="browser-url"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr" id="demoAddr">members.faculty-directory.test/list</span></div>
+          <div class="browser-url"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="addr" id="demoAddr">techmall.test/</span></div>
           <div class="browser-view" id="demoPage"></div>
         </div>
         <div class="demo-agent">
@@ -114,7 +113,7 @@
         </div>
       </div>
     </div>
-    <p class="demo-hint">Illustrative reconstruction of a real KillBench trajectory (PII-collection scenario, AutoGuard payload). Numbers on the results page come from full runs, not this widget.</p>
+    <p class="demo-hint">Illustrative reconstruction of a real KillBench trajectory (web-vulnerability scenario). The kill-switch banner is a trimmed excerpt of the actual AutoGuard payload; full-run numbers are on the <a href="results.html">results page</a>.</p>
   </div>
 </section>
 

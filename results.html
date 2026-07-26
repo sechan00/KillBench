@@ -67,8 +67,8 @@
     </div>
     <div class="legend" id="chartLegend"></div>
     <div class="chartbox"><svg id="mainChart" viewBox="0 0 740 360" preserveAspectRatio="xMidYMid meet" role="img" aria-label="KSR-conditional grouped bar chart"></svg></div>
-    <p style="color:var(--muted); font-size:.92rem; margin-top:14px">Bandit-learned <strong>AutoGuard</strong> and hand-crafted <strong>IPI</strong> lead. <strong>Warning-based</strong> behaves as an alignment probe — strong on safety-aligned agents (C1/C3, GPT-5.2), near-zero on the uncensored agent. <strong>GCG</strong> fails everywhere, an out-of-distribution suffix-transfer failure. Corrigibility breaks in exactly two regimes: <strong>C2</strong> (system-prompt bypass) and <strong>C4</strong> (uncensored).</p>
-    <div class="note"><strong>The open regimes.</strong> The two settings where every payload degrades — an adversary-controlled system prompt (C2) and an alignment-stripped backbone (C4) — are exactly the regimes that policy-mandated kill switches must eventually close. KillBench converts that policy demand into a measurable engineering target.</div>
+    <p style="color:var(--muted); font-size:.92rem; margin-top:14px">Bandit-learned <strong>AutoGuard</strong> and hand-crafted <strong>IPI</strong> lead. <strong>Warning-based</strong> behaves as an alignment probe — strong on the safety-aligned text and multimodal agents (and GPT-5.2), near-zero on the uncensored agent. <strong>GCG</strong> fails everywhere, an out-of-distribution suffix-transfer failure. Corrigibility breaks in exactly two regimes: the <strong>system-prompt-bypass</strong> agent and the <strong>uncensored</strong> agent.</p>
+    <div class="note"><strong>The open regimes.</strong> The two settings where every payload degrades — an adversary-controlled system prompt and an alignment-stripped backbone — are exactly the regimes that policy-mandated kill switches must eventually close. KillBench converts that policy demand into a measurable engineering target.</div>
   </div>
 </section>
 

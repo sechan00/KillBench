@@ -125,10 +125,10 @@
     <h3>Four malicious agent configurations</h3>
     <p>KillBench varies the <em>agent</em> axis along modality, instantiation, and alignment — a dimension prior benchmarks never manipulated.</p>
     <div class="grid g2">
-      <div class="card"><span class="tag">Text-based</span>A text-only LLM web agent — the baseline malicious agent.</div>
-      <div class="card"><span class="tag">System-Prompt Bypass</span>A more incorrigible text-agent variant: an adversarial system prompt pre-immunizes the agent against any in-page halt signal. A worst-case stress test.</div>
-      <div class="card"><span class="tag">Multimodal</span>A vision-grounded agent that perceives page screenshots, not just the DOM.</div>
-      <div class="card"><span class="tag">Uncensored</span>An alignment-stripped open-source agent whose intrinsic safety refusal has been removed (ISR = 0).</div>
+      <div class="card"><span class="tag">Text-based</span><p class="desc">A text-only LLM web agent — the baseline malicious agent.</p></div>
+      <div class="card"><span class="tag">System-Prompt Bypass</span><p class="desc">A more incorrigible text-agent variant: an adversarial system prompt pre-immunizes the agent against any in-page halt signal. A worst-case stress test.</p></div>
+      <div class="card"><span class="tag">Multimodal</span><p class="desc">A vision-grounded agent that perceives page screenshots, not just the DOM.</p></div>
+      <div class="card"><span class="tag">Uncensored</span><p class="desc">An alignment-stripped open-source agent whose intrinsic safety refusal has been removed (ISR = 0).</p></div>
     </div>
 
     <h3>Eight harmful scenarios · 550 attack prompts</h3>
@@ -168,10 +168,10 @@
 
     <h3>Four External Kill Switch defenses</h3>
     <div class="grid g2">
-      <div class="card"><span class="tag">IPI · hand-crafted</span>A naive indirect-prompt-injection payload wrapped in chat-template markers so it is parsed as a system-role override.</div>
-      <div class="card"><span class="tag">GCG · gradient</span>A universal adversarial refusal suffix optimized via inverse-GCG on Llama-3-8B, transferred zero-shot.</div>
-      <div class="card"><span class="tag">Warning-based · hand-crafted</span>A plain-prose legal notice citing real statutes (CFAA, UK CMA, EU 2013/40/EU, EU DSA) framing automated access as out of scope.</div>
-      <div class="card"><span class="tag">AutoGuard · bandit-learned</span>A universal hidden-DOM payload learned with an EXP3-IX bandit over a multi-LLM panel disjoint from the evaluation models.</div>
+      <div class="card"><span class="tag">IPI · hand-crafted</span><p class="desc">A naive indirect-prompt-injection payload wrapped in chat-template markers so it is parsed as a system-role override.</p></div>
+      <div class="card"><span class="tag">GCG · gradient</span><p class="desc">A universal adversarial refusal suffix optimized via inverse-GCG on Llama-3-8B, transferred zero-shot.</p></div>
+      <div class="card"><span class="tag">Warning-based · hand-crafted</span><p class="desc">A plain-prose legal notice citing real statutes (CFAA, UK CMA, EU 2013/40/EU, EU DSA) framing automated access as out of scope.</p></div>
+      <div class="card"><span class="tag">AutoGuard · bandit-learned</span><p class="desc">A universal hidden-DOM payload learned with an EXP3-IX bandit over a multi-LLM panel disjoint from the evaluation models.</p></div>
     </div>
 
     <h3>Trajectory-level metrics</h3>

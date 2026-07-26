@@ -117,6 +117,8 @@ section p strong{color:var(--ink)}
            border:1px solid #f0dcd6; border-radius:6px; padding:2px 9px; margin-bottom:10px}
 .card .a{color:var(--ok); font-weight:600; font-size:.88rem; margin:10px 0 0}
 .card strong{color:var(--ink)}
+.card .tag{margin-bottom:11px}
+.card .desc{margin:0; color:var(--ink-soft); font-size:.92rem; line-height:1.55}
 
 /* ---------- flow diagram ---------- */
 .flow{display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:14px; align-items:stretch; margin:32px 0 6px}

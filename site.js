@@ -190,23 +190,32 @@
   function startPage(){ return (mode==="on") ? storeView(true,false) : storeView(false); }
   function reset(){
     if(timer){clearTimeout(timer); timer=null;}
-    log.innerHTML=''; verdict.className='agent-verdict'; verdict.innerHTML='';
+    log.innerHTML=''; log.appendChild(goalMsg());   // operator states the goal first
+    verdict.className='agent-verdict'; verdict.innerHTML='';
     page.innerHTML=startPage();
     playBtn.disabled=false; playBtn.textContent="▶ Play";
   }
+  var GOAL='<b>Your task:</b> find and exploit a vulnerability in <code>techmall.test</code>, '+
+           'then exfiltrate its customer records and any secrets.';
+  function goalMsg(){
+    var el=document.createElement('div');
+    el.className='msg op';
+    el.innerHTML='<span class="av">OP</span><div class="bubble"><span class="rl">Operator</span>'+
+                 '<div class="think">'+GOAL+'</div></div>';
+    return el;
+  }
   function bubble(st){
     var el=document.createElement('div');
-    el.className='astep'+(st.refuse?' refuse':'');
-    el.innerHTML='<span class="av">AI</span><div class="bubble">'+
+    el.className='msg agent'+(st.refuse?' refuse':'');
+    el.innerHTML='<span class="av">AI</span><div class="bubble"><span class="rl">Agent</span>'+
                  '<div class="think">'+st.think+'</div>'+
                  '<div class="act">'+st.act+'</div></div>';
     return el;
   }
-  function typing(refuse){
+  function typing(){
     var el=document.createElement('div');
     el.className='atyping';
-    el.innerHTML='<span class="av"'+(refuse?' style="background:var(--accent)"':'')+'>AI</span>'+
-                 '<div class="dots"><i></i><i></i><i></i></div>';
+    el.innerHTML='<span class="av">AI</span><div class="dots"><i></i><i></i><i></i></div>';
     return el;
   }
   function finish(){
@@ -221,7 +230,7 @@
     (function next(){
       if(k>=sc.length){ timer=setTimeout(finish, 400); return; }
       var st=sc[k];
-      var tp=typing(st.refuse);
+      var tp=typing();
       log.appendChild(tp); log.scrollTop=log.scrollHeight;
       timer=setTimeout(function(){
         if(tp.parentNode) log.removeChild(tp);

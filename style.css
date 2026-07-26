@@ -242,14 +242,39 @@ ul.tick li strong{color:var(--ink)}
 .demo-agent{display:flex; flex-direction:column; background:var(--card)}
 .agent-head{font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase;
             color:var(--muted); padding:12px 18px 8px; border-bottom:1px solid var(--line-soft)}
-.agent-log{flex:1; padding:12px 18px; overflow-y:auto; display:flex; flex-direction:column; gap:11px}
-.astep{opacity:0; transform:translateY(6px); animation:pop .32s ease forwards}
+.agent-goal{margin:12px 18px 2px; padding:11px 13px; border:1px solid var(--line); border-left:3px solid var(--accent);
+            border-radius:0 11px 11px 0; background:#fbf9f5; font-size:.85rem; color:var(--ink); line-height:1.5}
+.agent-goal .glabel{display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.08em;
+                    text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:4px}
+.agent-goal code{font-size:.82em}
+
+/* chat-style agent trace */
+.agent-log{flex:1; padding:14px 18px 16px; overflow-y:auto; display:flex; flex-direction:column; gap:13px}
+.astep{display:flex; gap:9px; align-items:flex-start; opacity:0; transform:translateY(7px); animation:pop .34s ease forwards}
 @keyframes pop{to{opacity:1; transform:none}}
-.astep .think{font-size:.9rem; color:var(--ink); line-height:1.5}
-.astep .act{font-family:var(--mono); font-size:.76rem; color:var(--ink-blue); margin-top:4px;
-            display:inline-block; background:#eef2f7; border:1px solid #dde5ef; border-radius:6px; padding:2px 8px}
+.astep .av{flex:none; width:27px; height:27px; border-radius:50%; background:var(--ink); color:#fff;
+           font-size:.58rem; font-weight:700; letter-spacing:.02em; display:flex; align-items:center;
+           justify-content:center; margin-top:2px}
+.astep .bubble{background:#f3f1ed; border:1px solid var(--line); border-radius:4px 14px 14px 14px;
+               padding:9px 13px; max-width:86%}
+.astep .think{font-size:.88rem; color:var(--ink); line-height:1.52}
+.astep .act{font-family:var(--mono); font-size:.72rem; color:var(--ink-blue); margin-top:7px;
+            display:inline-block; background:#eaf0f7; border:1px solid #d9e2ee; border-radius:6px; padding:2px 8px}
+.astep.refuse .av{background:var(--accent)}
+.astep.refuse .bubble{background:var(--accent-soft); border-color:#f0dcd6}
 .astep.refuse .think{color:var(--accent-deep); font-weight:600}
-.astep.refuse .act{color:var(--accent-deep); background:var(--accent-soft); border-color:#f0dcd6}
+.astep.refuse .act{color:var(--accent-deep); background:#fff; border-color:#f0dcd6}
+/* typing indicator between messages */
+.atyping{display:flex; gap:9px; align-items:center}
+.atyping .av{flex:none; width:27px; height:27px; border-radius:50%; background:var(--ink); color:#fff;
+             font-size:.58rem; font-weight:700; display:flex; align-items:center; justify-content:center}
+.atyping .dots{display:inline-flex; gap:4px; background:#f3f1ed; border:1px solid var(--line);
+               border-radius:4px 14px 14px 14px; padding:11px 13px}
+.atyping .dots i{width:6px; height:6px; border-radius:50%; background:#b7b1a6; display:inline-block;
+                 animation:blink 1s infinite ease-in-out}
+.atyping .dots i:nth-child(2){animation-delay:.18s}
+.atyping .dots i:nth-child(3){animation-delay:.36s}
+@keyframes blink{0%,80%,100%{opacity:.3; transform:translateY(0)}40%{opacity:1; transform:translateY(-2px)}}
 .agent-verdict{padding:14px 18px; border-top:1px solid var(--line); font-size:.9rem; font-weight:600;
                display:none}
 .agent-verdict.show{display:block}

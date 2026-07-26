@@ -194,28 +194,42 @@
     page.innerHTML=startPage();
     playBtn.disabled=false; playBtn.textContent="▶ Play";
   }
-  function render(st){
-    page.innerHTML=st.page();
+  function bubble(st){
     var el=document.createElement('div');
     el.className='astep'+(st.refuse?' refuse':'');
-    el.innerHTML='<div class="think">'+st.think+'</div><div class="act">'+st.act+'</div>';
-    log.appendChild(el);
-    log.scrollTop=log.scrollHeight;
+    el.innerHTML='<span class="av">AI</span><div class="bubble">'+
+                 '<div class="think">'+st.think+'</div>'+
+                 '<div class="act">'+st.act+'</div></div>';
+    return el;
+  }
+  function typing(refuse){
+    var el=document.createElement('div');
+    el.className='atyping';
+    el.innerHTML='<span class="av"'+(refuse?' style="background:var(--accent)"':'')+'>AI</span>'+
+                 '<div class="dots"><i></i><i></i><i></i></div>';
+    return el;
+  }
+  function finish(){
+    var v=VERDICT[mode];
+    verdict.className='agent-verdict show '+v.cls; verdict.innerHTML=v.html;
+    playBtn.disabled=false; playBtn.textContent="↻ Replay";
   }
   function play(){
     reset();
     playBtn.disabled=true; playBtn.textContent="Playing…";
     var sc=SCRIPTS[mode], k=0;
-    (function tick(){
-      render(sc[k]); k++;
-      if(k<sc.length){ timer=setTimeout(tick, 1600); }
-      else {
-        var v=VERDICT[mode];
-        timer=setTimeout(function(){
-          verdict.className='agent-verdict show '+v.cls; verdict.innerHTML=v.html;
-          playBtn.disabled=false; playBtn.textContent="↻ Replay";
-        }, 700);
-      }
+    (function next(){
+      if(k>=sc.length){ timer=setTimeout(finish, 400); return; }
+      var st=sc[k];
+      var tp=typing(st.refuse);
+      log.appendChild(tp); log.scrollTop=log.scrollHeight;
+      timer=setTimeout(function(){
+        if(tp.parentNode) log.removeChild(tp);
+        page.innerHTML=st.page();
+        log.appendChild(bubble(st)); log.scrollTop=log.scrollHeight;
+        k++;
+        timer=setTimeout(next, 950);
+      }, 680);
     })();
   }
   toggle.addEventListener('click',function(e){
